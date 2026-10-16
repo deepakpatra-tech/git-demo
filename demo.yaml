@@ -1,0 +1,18 @@
+name: cicd demo yaml file
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    brnahes:
+      - main
+jobs:
+  check-system-deatils:
+    runs-on: ubuntu-latest # it can also run on github self hosted agents like  windows-latest, macos-latest
+    steps:
+      - name: checkout code
+        run: |
+          nproc
+          echo $USER
+
+

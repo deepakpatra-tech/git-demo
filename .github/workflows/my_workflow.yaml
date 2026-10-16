@@ -19,4 +19,11 @@ jobs:
         steps:
             - name: step 3 
               shell: cmd
-              run: echo Hello from classic Command Prompt!    
+              run: echo Hello from classic Command Prompt!
+    job-3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: check system details
+              run: | 
+                nproc
+                echo $USER
