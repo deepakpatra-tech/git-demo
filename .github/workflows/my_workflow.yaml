@@ -27,3 +27,6 @@ jobs:
               run: | 
                 nproc
                 echo $USER
+                free -h
+                df -h
+                
