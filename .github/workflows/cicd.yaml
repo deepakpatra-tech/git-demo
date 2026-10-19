@@ -1,0 +1,11 @@
+name: cicd demo
+on:
+  push:
+    branches:
+      - main
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print job
+        run: echo "hi deppak"
