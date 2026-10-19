@@ -12,4 +12,6 @@ jobs:
         - name: build docker image
           run: docker build -t deepakpatra-tech/my-app:v1 .
         - name: Test Application
-          run: curl http://127.0.0.1:5001/
+          run: |
+            sleep 5
+            curl http://127.0.0.1:5000
