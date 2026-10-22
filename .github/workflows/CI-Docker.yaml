@@ -21,7 +21,7 @@ jobs:
             push: true
             tags: deepakpatra/flask-app:V1
         - name: Run Conatiner
-          run: docker run -d -p 5000:5000 deepakpatra/flask-app:V1.0.1
+          run: docker run -d -p 5000:5000 deepakpatra/flask-app:V1
         - name: Test Application
           run: |
             sleep 5
