@@ -20,4 +20,4 @@ jobs:
     needs: Job-1
     steps:
       - name: print message
-        run: echo 'HI"
+        run: echo 'HI'
