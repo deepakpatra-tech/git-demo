@@ -3,10 +3,7 @@ on:
     workflow_dispatch:
 jobs:
     call-template:
-        runs-on: ubuntu-latest
-        steps:
-            - name: call template
-              uses: ./.github/workflows/action.yaml
-              with:
+            uses: ./.github/workflows/action.yaml
+            with:
                 app_name: payment-service
                 security-scan: true
