@@ -10,6 +10,11 @@ on:
         options:
           - dev
           - production
+      smoke-test:
+        description: "Do you want perfomr smoke test"
+        required: true
+        type: boolean
+
 
 jobs:
   deploy:
@@ -17,3 +22,6 @@ jobs:
     steps:
       - name: Show environment
         run: echo "Deploying to ${{ inputs.environment }}"
+      - name: Run it when smoke test is true
+        if: ${{ inputs.smoke-test }}
+        run: echo " smoke test perfomed"
