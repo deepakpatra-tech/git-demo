@@ -3,13 +3,17 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: "where you want o deploy"
+        description: "where you want to deploy"
         required: true
         type: choice
         options:
           - dev
           - production
           - QA
+      smoke-test:
+        description: "Do you want to perform Test"
+        required: true
+        type: boolean
 jobs:
   job1: 
     runs-on: ubuntu-latest

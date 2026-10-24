@@ -1,0 +1,24 @@
+name: template 
+on:
+    workflow_call:
+        inputs:
+            app_name:
+                required: true
+                type: string
+            security-scan:
+                required: true
+                type: boolean
+jobs:
+    code-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v7
+    print-job:
+        runs-on: ubuntu-latest
+        if: ${{ inputs.security-scan }}
+        steps:
+            - name: print config
+              run: |
+                echo "app_name ${{ inputs.app_name }}"
+

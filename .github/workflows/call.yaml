@@ -1,0 +1,12 @@
+name: call workflow
+on:
+    workflow_dispatch:
+jobs:
+    call-template:
+        runs-on: ubuntu-latest
+        steps:
+            - name: call template
+              uses: ./.github/workflows/template.yaml
+              with:
+                app_name: payment-service
+                security-scan: true
