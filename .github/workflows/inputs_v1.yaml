@@ -1,0 +1,21 @@
+name: inputs test workflow
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "where you want o deploy"
+        required: true
+        type: choice
+        options:
+          - dev
+          - production
+          - QA
+jobs:
+  job1: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: print environment
+        run: echo "environment is ${{ inputs.environment }}"
+      - name: run only when production
+        if: ${{ inputs.environment == 'production' }}
+        run: echo "the environment is ${{ inputs.environment }}"
