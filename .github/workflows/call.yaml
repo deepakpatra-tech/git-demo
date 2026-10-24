@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: call template
-              uses: ./.github/workflows/template.yaml
+              uses: ./.github/workflows/action.yaml
               with:
                 app_name: payment-service
                 security-scan: true
