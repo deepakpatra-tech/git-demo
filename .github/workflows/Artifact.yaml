@@ -30,6 +30,13 @@ jobs:
         if: ${{ inputs.smoke-test }}
         run: curl http://127.0.0.1:5000
 
+      - name: upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: build artifact flask
+          path: artifact
+    
+
       
 
 
