@@ -1,0 +1,35 @@
+name: Artifact POC Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      smoke-test:
+        description: 'do you perform smoke-test'
+        required: true
+        type: boolean
+jobs:
+  Check-Code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v7
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: '3.13'
+
+      - name: install dependenices
+        run: pip install --no-cache-dir -r requirements.txt
+
+      - name: run application
+        run: |
+          python app.py
+          sleep 5
+
+      - name: smoke test
+        if: ${{ inputs.smoke-test }}
+        run: curl http://127.0.0.1:5000
+
+      
+
+
