@@ -41,7 +41,6 @@ jobs:
         with:
           name: build artifact flask
           path: 
-            artifact/
             app.py
             requirements.txt
     
