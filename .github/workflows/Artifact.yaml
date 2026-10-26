@@ -53,7 +53,7 @@ jobs:
           path: artifact/
       - name: check files
         run: |
-          ls
+          ls -la artifact/
           
 
 
