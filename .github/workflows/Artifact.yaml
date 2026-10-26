@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: code checkout
         uses: actions/checkout@v7
-
+      - name: list all files
+        run: ls
       - name: setup python
         uses: actions/setup-python@v5
         with: 
@@ -39,7 +40,10 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: build artifact flask
-          path: artifact/
+          path: 
+            artifact/
+            app.py
+            requirements.txt
     
 
       
