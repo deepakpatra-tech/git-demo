@@ -33,9 +33,7 @@ jobs:
 
       - name: run application
         shell: bash
-        run: | 
-          python app.py &
-          sleep 5
+        run: python app.py &
 
       - name: smoke test
         run: curl -fsS http://127.0.0.1:5000
