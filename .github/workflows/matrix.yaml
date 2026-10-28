@@ -1,0 +1,38 @@
+name: Matrix Workflow POC
+on:
+  workflow_dispatch:
+
+jobs:
+  test-job:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+        version:
+          - "3.11"
+          - "3.12"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v7
+
+      - name: python setup
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.version }}
+
+      - name: dependencies cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashfiles('requirements.txt') }}
+      
+      - name: install dependencies
+        run: pip install -r requirements.txt
+
+      - name: run application
+        run: python app.py &
+
+      - name: smoke test
+        run: curl http://127.0.0.1:5000
